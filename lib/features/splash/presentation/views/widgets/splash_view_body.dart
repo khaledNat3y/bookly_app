@@ -1,11 +1,31 @@
 import 'package:bookly_app/core/helpers/spacing.dart';
 import 'package:bookly_app/core/theming/app_theme.dart';
 import 'package:bookly_app/core/utils/assets.dart';
+import 'package:bookly_app/features/splash/presentation/views/widgets/sliding_text.dart';
 import 'package:flutter/material.dart';
 
-class SplashViewBody extends StatelessWidget {
-   const SplashViewBody({super.key});
+class SplashViewBody extends StatefulWidget {
+  const SplashViewBody({super.key});
 
+  @override
+  State<SplashViewBody> createState() => _SplashViewBodyState();
+}
+
+class _SplashViewBodyState extends State<SplashViewBody>
+    with SingleTickerProviderStateMixin {
+  late AnimationController animationController;
+  late Animation<Offset> slideAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    initSlidingAnimation();
+  }
+  @override
+  void dispose() {
+    super.dispose();
+    animationController.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -14,9 +34,17 @@ class SplashViewBody extends StatelessWidget {
       children: [
         Image.asset(AssetsData.logo),
         verticalSpace(5),
-         Text("Read Free Books", style: AppTheme.font14LightGreyRegular, textAlign: TextAlign.center,)
-
+        SlidingText(slideAnimation: slideAnimation,),
       ],
     );
   }
+  void initSlidingAnimation() {
+    animationController =
+        AnimationController(vsync: this, duration: const Duration(seconds: 1));
+    slideAnimation = Tween<Offset>(begin: const Offset(0, 3), end: Offset.zero).animate(animationController);
+
+    animationController.forward();
+  }
 }
+
+
