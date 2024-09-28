@@ -9,10 +9,10 @@ import 'font_weight_helper.dart';
 
 
 abstract class AppTheme {
-  static TextStyle font24BlackBold = TextStyle(
-      fontSize: 24.sp,
-    fontWeight: FontWeightHelper.bold,
-    color: AppColors.black
+  static TextStyle font18WhiteBold = TextStyle(
+      fontSize: 18.sp,
+      fontWeight: FontWeightHelper.bold,
+      color: AppColors.white,
   );
 
   static TextStyle font32lueBold = TextStyle(
