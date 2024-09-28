@@ -12,7 +12,7 @@ abstract class AppTheme {
   static TextStyle font18WhiteBold = TextStyle(
       fontSize: 18.sp,
       fontWeight: FontWeightHelper.bold,
-      color: AppColors.white
+      color: AppColors.white,
   );
 
   static TextStyle font32lueBold = TextStyle(
