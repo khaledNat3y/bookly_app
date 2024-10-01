@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../../core/helpers/spacing.dart';
-import '../../../../../core/theming/app_colors.dart';
 import '../../../../../core/theming/app_theme.dart';
 
 class BookRating extends StatelessWidget {
-  const BookRating({super.key});
+  final MainAxisAlignment mainAxisAlignment;
+  const BookRating({super.key,this.mainAxisAlignment = MainAxisAlignment.start});
 
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: mainAxisAlignment,
       children: [
-        const Icon(FontAwesomeIcons.solidStar, color: AppColors.yellow,),
+        SvgPicture.asset("assets/svgs/Star.svg"),
         horizontalSpace(6.3),
         Text(
           "4.9",

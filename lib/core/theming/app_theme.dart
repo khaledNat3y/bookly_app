@@ -14,6 +14,16 @@ abstract class AppTheme {
       fontWeight: FontWeightHelper.bold,
       color: AppColors.white,
   );
+  static TextStyle font18GreyMedium = TextStyle(
+    fontSize: 18.sp,
+    fontWeight: FontWeightHelper.medium,
+    color: AppColors.grey,
+  );
+  static TextStyle font24WhiteRegular = TextStyle(
+    fontSize: 24.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: AppColors.white,
+  );
 
   static TextStyle font32lueBold = TextStyle(
     fontSize: 32.sp,
@@ -53,6 +63,11 @@ abstract class AppTheme {
   static TextStyle font13BlackRegular = TextStyle(
       fontSize: 13.sp,
       fontWeight: FontWeightHelper.regular,
+      color: AppColors.black
+  );
+  static TextStyle font18BlackExtraBold = TextStyle(
+      fontSize: 18.sp,
+      fontWeight: FontWeightHelper.extraBold,
       color: AppColors.black
   );
 
