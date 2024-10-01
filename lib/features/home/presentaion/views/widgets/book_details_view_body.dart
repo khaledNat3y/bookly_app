@@ -17,46 +17,54 @@ class BookDetailsViewBody extends StatelessWidget {
     var width = MediaQuery.sizeOf(context).width;
     return SafeArea(
       child: Scaffold(
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const BookDetailsAppBar(),
-            verticalSpace(10),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: width * 0.31),
-              child: const FeaturedListViewItem(),
-            ),
-            verticalSpace(45),
-            Text(
-              "The Jungle Book",
-              style: AppTheme.font24WhiteRegular
-                  .copyWith(fontFamily: "GT Sectra Fine"),
-            ),
-            verticalSpace(7),
-            Text("Rudyard Kipling",
-                style: AppTheme.font18GreyMedium
-                    .copyWith(fontStyle: FontStyle.italic)),
-            verticalSpace(16),
-            const BookRating(
-              mainAxisAlignment: MainAxisAlignment.center,
-            ),
-            verticalSpace(20),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 38.w),
-              child: const BooksAction(),
-            ),
-            verticalSpace(20),
-            Padding(
-              padding: EdgeInsets.only(left: 18.w),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                  child: Text("You can also like", style: AppTheme.font14WhiteBold, textAlign: TextAlign.start,)),
-            ),
-            verticalSpace(16),
-            Padding(
-              padding: EdgeInsets.only(left: 18.w),
-              child: const SimilarBookListView(),
-            ),
+        body: CustomScrollView(
+          slivers: [
+            SliverFillRemaining(
+              hasScrollBody: false,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const BookDetailsAppBar(),
+                  verticalSpace(10),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: width * 0.31),
+                    child: const FeaturedListViewItem(),
+                  ),
+                  verticalSpace(45),
+                  Text(
+                    "The Jungle Book",
+                    style: AppTheme.font24WhiteRegular
+                        .copyWith(fontFamily: "GT Sectra Fine"),
+                  ),
+                  verticalSpace(7),
+                  Text("Rudyard Kipling",
+                      style: AppTheme.font18GreyMedium
+                          .copyWith(fontStyle: FontStyle.italic)),
+                  verticalSpace(16),
+                  const BookRating(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                  ),
+                  verticalSpace(20),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 38.w),
+                    child: const BooksAction(),
+                  ),
+                  Expanded(child: verticalSpace(20)),
+                  Padding(
+                    padding: EdgeInsets.only(left: 18.w),
+                    child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text("You can also like", style: AppTheme.font14WhiteBold, textAlign: TextAlign.start,)),
+                  ),
+                  verticalSpace(16),
+                  Padding(
+                    padding: EdgeInsets.only(left: 18.w),
+                    child: const SimilarBookListView(),
+                  ),
+                  verticalSpace(20),
+                ],
+              ),
+            )
           ],
         ),
       ),
