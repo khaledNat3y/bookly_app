@@ -2,6 +2,7 @@ import 'package:bookly_app/core/helpers/spacing.dart';
 import 'package:bookly_app/core/theming/app_theme.dart';
 import 'package:bookly_app/features/home/presentaion/views/widgets/book_rating.dart';
 import 'package:bookly_app/features/home/presentaion/views/widgets/featured_list_view_item.dart';
+import 'package:bookly_app/features/home/presentaion/views/widgets/similar_books_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -22,7 +23,7 @@ class BookDetailsViewBody extends StatelessWidget {
             const BookDetailsAppBar(),
             verticalSpace(10),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: width * 0.27),
+              padding: EdgeInsets.symmetric(horizontal: width * 0.31),
               child: const FeaturedListViewItem(),
             ),
             verticalSpace(45),
@@ -43,12 +44,27 @@ class BookDetailsViewBody extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 38.w),
               child: const BooksAction(),
-            )
+            ),
+            verticalSpace(20),
+            Padding(
+              padding: EdgeInsets.only(left: 18.w),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                  child: Text("You can also like", style: AppTheme.font14WhiteBold, textAlign: TextAlign.start,)),
+            ),
+            verticalSpace(16),
+            Padding(
+              padding: EdgeInsets.only(left: 18.w),
+              child: const SimilarBookListView(),
+            ),
           ],
         ),
       ),
     );
   }
 }
+
+
+
 
 
