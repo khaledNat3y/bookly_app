@@ -41,6 +41,8 @@ dependencies:
   go_router: ^14.2.8
   flutter_svg: ^2.0.10+1
   dartz: ^0.10.1
+  dio: ^5.7.0
+  flutter_dotenv: ^5.1.0
 
 dev_dependencies:
   flutter_test:
@@ -68,6 +70,7 @@ flutter:
   assets:
     - assets/images/
     - assets/svgs/
+    - .env
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
