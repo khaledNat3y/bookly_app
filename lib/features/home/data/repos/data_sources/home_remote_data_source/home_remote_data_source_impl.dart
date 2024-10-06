@@ -19,10 +19,14 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
   }
 
   @override
-  Future<List<BookEntity>> fetchNewestBooks() {
-    throw "";
+  Future<List<BookEntity>> fetchNewestBooks() async{
+    var response =
+        await apiService.get(endpoint: dotenv.env['FREE_NEWEST_BOOKS_END_POINT']!);
+    List<BookEntity> books = getBooksList(response);
+    return books;
   }
 
+  ///get books list method
   List<BookEntity> getBooksList(Map<String, dynamic> response) {
     List<BookEntity> books = [];
     for (var item in response['items']) {
