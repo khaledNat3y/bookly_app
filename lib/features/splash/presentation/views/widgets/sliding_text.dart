@@ -1,6 +1,5 @@
+import 'package:bookly_app/core/theming/app_theme.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../../core/theming/app_theme.dart';
 
 class SlidingText extends StatelessWidget {
   final Animation<Offset> slideAnimation;
@@ -18,6 +17,7 @@ class SlidingText extends StatelessWidget {
             style: AppTheme.font14LightGreyRegular,
             textAlign: TextAlign.center,
           ),
+        
         );
       },
     );
