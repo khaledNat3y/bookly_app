@@ -13,9 +13,11 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
   HomeRemoteDataSourceImpl({required this.apiService});
 
   @override
-  Future<List<BookEntity>> fetchFeaturedBooks() async {
+  Future<List<BookEntity>> fetchFeaturedBooks({int pageNumber = 0}) async {
+    String baseEndpoint = dotenv.env['FREE_BOOKS_END_POINT']!;
+    String endpointWithPageNumber = "$baseEndpoint${pageNumber * 10}";
     var response =
-        await apiService.get(endpoint: dotenv.env['FREE_BOOKS_END_POINT']!);
+        await apiService.get(endpoint: endpointWithPageNumber);
     List<BookEntity> books = getBooksList(response);
     saveToHive(books, kFeaturedBox);
     return books;

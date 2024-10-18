@@ -1,8 +1,12 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../core/theming/app_colors.dart';
+
 class BestSellerImageWidget extends StatelessWidget {
-  const BestSellerImageWidget({super.key});
+  final String? image;
+  const BestSellerImageWidget({super.key, required this.image});
 
   @override
   Widget build(BuildContext context) {
@@ -14,10 +18,13 @@ class BestSellerImageWidget extends StatelessWidget {
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12.r),
               color: Colors.white,
-              image: const DecorationImage(
-                image: AssetImage("assets/images/book.png"),
-                fit: BoxFit.fill,
-              )),
+          ),
+          child: CachedNetworkImage(
+            imageUrl: image ?? '',
+            fit: BoxFit.fill,
+            placeholder: (context, url) => const CircularProgressIndicator(color: AppColors.white,),
+            errorWidget: (context, url, error) => const Icon(Icons.error),
+          ),
         ),
       ),
     );

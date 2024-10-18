@@ -21,12 +21,12 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
 
   ///featured books cubit
-  getIt.registerLazySingleton<FeaturedBooksCubit>(
+  getIt.registerFactory<FeaturedBooksCubit>(
       () => FeaturedBooksCubit(getIt()));
 
   ///newest books cubit
   getIt
-      .registerLazySingleton<NewestBooksCubit>(() => NewestBooksCubit(getIt()));
+      .registerFactory<NewestBooksCubit>(() => NewestBooksCubit(getIt()));
 
   ///home repo
   getIt.registerLazySingleton<HomeRepo>(() => HomeRepoImpl(
@@ -39,4 +39,12 @@ Future<void> setupGetIt() async {
   ///home local data source
   getIt.registerLazySingleton<HomeLocalDataSource>(
       () => HomeLocalDataSourceImpl());
+
+  /// Register FetchFeaturedBooksUseCase
+  getIt.registerLazySingleton<FetchFeaturedBooksUseCase>(
+          () => FetchFeaturedBooksUseCase(homeRepo: getIt()));
+
+  /// Register FetchNewestBooksUseCase
+  getIt.registerLazySingleton<FetchNewestBooksUseCase>(
+          () => FetchNewestBooksUseCase(homeRepo: getIt()));
 }

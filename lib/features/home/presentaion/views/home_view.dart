@@ -23,9 +23,9 @@ class HomeView extends StatelessWidget {
       body: MultiBlocProvider(
         providers: [
           BlocProvider(
-              create: (context) => getIt<FeaturedBooksCubit>()),
+              create: (context) => getIt<FeaturedBooksCubit>()..fetchFeaturedBooks()),
           BlocProvider(
-              create: (context) => getIt<NewestBooksCubit>()),
+              create: (context) => getIt<NewestBooksCubit>()..fetchNewestBooks()),
         ],
         child: const HomeViewBody(),
       ),

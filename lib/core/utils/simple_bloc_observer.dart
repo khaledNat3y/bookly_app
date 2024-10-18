@@ -6,6 +6,7 @@ class SimpleBlocObserver extends BlocObserver {
   @override
   void onChange(BlocBase<dynamic> bloc, Change<dynamic> change) {
     log(change.toString());
+    print(change.toString());
     super.onChange(bloc, change);
   }
 }

@@ -48,6 +48,8 @@ dependencies:
   flutter_bloc: ^8.1.6
   screen_protector: ^1.4.2+1
   get_it: ^8.0.0
+  cached_network_image: ^3.4.1
+  another_flushbar: ^1.12.30
 
 
 dev_dependencies:
